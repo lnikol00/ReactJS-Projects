@@ -1,12 +1,12 @@
 import './App.css';
 import Input from './components/Input';
-import ToDoItems from './components/ToDoItems';
+import ToDoList from './components/ToDoList';
 
 function App() {
   return (
     <div className="App">
       <Input />
-      <ToDoItems />
+      <ToDoList />
     </div>
   );
 }
