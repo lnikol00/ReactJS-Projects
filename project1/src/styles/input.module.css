@@ -1,0 +1,45 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 30px;
+}
+
+.headerContainer h1 {
+    font-size: 5em;
+    font-family: 'Lugrasimo', cursive;
+    color: white;
+}
+
+.inputContainer form {
+    display: flex;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.inputContainer input {
+    outline: none;
+    border: 1px solid rgb(174, 14, 14);
+    background-color: white;
+    padding: 10px 16px;
+    border-radius: 4px;
+    width: 350px;
+    font-size: 1.3em;
+}
+
+.inputContainer button {
+    width: 75px;
+    background-color: blue;
+    color: white;
+    font-size: 1.2em;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.inputContainer button:disabled {
+    cursor: not-allowed;
+    background-color: red;
+}
