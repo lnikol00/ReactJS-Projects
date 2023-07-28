@@ -1,24 +1,24 @@
 {
-    "items": [
-        {
-            "task": "očisti sobu",
-            "id": 1
-        },
-        {
-            "task": "očisti sobu",
-            "id": 2
-        },
-        {
-            "task": "očisti sobu",
-            "id": 3
-        },
-        {
-            "task": "očisti sobu",
-            "id": 4
-        },
-        {
-            "task": "očisti sobu",
-            "id": 5
-        }
-    ]
+  "items": [
+    {
+      "task": "task 1",
+      "isDone": false,
+      "id": 1
+    },
+    {
+      "task": "task 2",
+      "isDone": false,
+      "id": 2
+    },
+    {
+      "task": "task 3",
+      "isDone": true,
+      "id": 3
+    },
+    {
+      "task": "task 4",
+      "isDone": false,
+      "id": 4
+    }
+  ]
 }

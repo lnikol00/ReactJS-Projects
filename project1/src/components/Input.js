@@ -7,6 +7,7 @@ function Input() {
     const formRef = useRef();
 
     const [task, setTask] = useState("")
+    const [isDone, setIsDone] = useState(false)
     const [disable, setDisable] = useState(true)
 
     const handleItems = (e) => {
@@ -21,14 +22,15 @@ function Input() {
 
     const addTask = (e) => {
         e.preventDefault()
-        const item = { task }
+        const item = { task, isDone }
 
         fetch("http://localhost:3500/items", {
             method: 'POST',
-            headers: { "Content-Type": "applications/json" },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify(item)
         }).then(() => {
-            console.log("new item added")
+            console.log("new task added");
+            window.location.reload();
         })
         setTask("");
         formRef.current.reset()

@@ -9,8 +9,8 @@ function ToDoList() {
 
     return (
         <div className={styles.mainContainer}>
-            {error && <div>{error}</div>}
-            {loading && <div>Loading ...</div>}
+            {error && <div className={styles.error}>{error}</div>}
+            {loading && <div className={styles.loading}>Loading ...</div>}
             {tasks && <ToDoItems tasks={tasks} />}
         </div>
     )

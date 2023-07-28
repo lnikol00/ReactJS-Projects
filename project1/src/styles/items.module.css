@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100vh;
+    flex-direction: column;
 }
 
 .itemsContainer {
@@ -35,7 +35,7 @@
 }
 
 .done {
-    background-color: lightgreen;
+    background-color: rgb(101, 230, 101);
 }
 
 .notDone {
@@ -54,12 +54,80 @@
 
 .svgContainer svg {
     background-color: white;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
     border-radius: 4px;
-    padding: 5px;
 }
 
 .itemContainer p {
     font-size: 1.3em;
+}
+
+.popupContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 20px;
+    flex-direction: column;
+    background-color: white;
+    width: 650px;
+    height: 175px;
+    border-radius: 8px;
+}
+
+.wrapper p {
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.close {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.close svg {
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.change {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.change span {
+    padding-left: 10px;
+}
+
+.change svg {
+    font-size: 23px;
+}
+
+.change div {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.change div:nth-child(1):hover {
+    background-color: lightgreen;
+}
+
+.change div:nth-child(2):hover {
+    background-color: lightcoral;
+}
+
+.change div:nth-child(3):hover {
+    background-color: lightgray;
 }

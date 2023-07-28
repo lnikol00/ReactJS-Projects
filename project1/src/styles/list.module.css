@@ -1,0 +1,15 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.error {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
+
+.loading {
+    margin-top: 20px;
+    font-size: 1.5em;
+}
