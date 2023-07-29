@@ -131,3 +131,24 @@
 .change div:nth-child(3):hover {
     background-color: lightgray;
 }
+
+@media screen and (max-width: 650px) {
+    .wrapper {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width:550px) {
+    .itemsContainer {
+        width: 350px;
+    }
+
+    .wrapper {
+        width: 350px;
+        flex-direction: column;
+    }
+
+    .change svg {
+        font-size: 16px;
+    }
+}

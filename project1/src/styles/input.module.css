@@ -43,3 +43,18 @@
     cursor: not-allowed;
     background-color: red;
 }
+
+@media screen and (max-width: 600px) {
+    .headerContainer h1 {
+        font-size: 3em;
+    }
+
+    .inputContainer input {
+        width: 250px;
+    }
+
+    .inputContainer button {
+        width: 50px;
+        font-size: 1em;
+    }
+}

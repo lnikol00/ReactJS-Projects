@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "../styles/items.module.css"
 import * as FcIcons from "react-icons/fc"
 import * as GrIcons from "react-icons/gr"
@@ -9,6 +9,13 @@ function ToDoItems({ tasks }) {
     const [popupContent, setPopupContent] = useState([])
     const [popupToggle, setPopupToggle] = useState(false)
     const [styling, setStyling] = useState(null)
+
+    const [task, setTask] = useState('');
+    const [isDone, setIsDone] = useState(false);
+
+    useEffect(() => {
+        setTask(`${popupContent.map((content) => content.task)}`)
+    }, [popupContent])
 
     const showcontent = (item) => {
         setPopupContent([item])
@@ -27,6 +34,38 @@ function ToDoItems({ tasks }) {
             method: 'DELETE',
         }).then(() => {
             window.location.reload();
+        })
+    }
+
+    const handleDone = (id) => {
+
+        const item = { task, isDone }
+
+        fetch(`http://localhost:3500/items/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item)
+        }).then(() => {
+            window.location.reload()
+        })
+    }
+
+    const handleNotDone = (id) => {
+
+        const item = { task, isDone }
+
+        fetch(`http://localhost:3500/items/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(item)
+        }).then(() => {
+            window.location.reload()
         })
     }
 
@@ -51,8 +90,8 @@ function ToDoItems({ tasks }) {
                                 </div>
                                 <p>{content.task}</p>
                                 <div className={styles.change}>
-                                    <div ><FcIcons.FcCheckmark /><span>Done</span></div>
-                                    <div><FcIcons.FcCancel /><span>Not Done</span></div>
+                                    <div onClick={() => handleDone(content.id)}><FcIcons.FcCheckmark /><span>Done</span></div>
+                                    <div onClick={() => handleNotDone(content.id)}><FcIcons.FcCancel /><span>Not Done</span></div>
                                     <div onClick={() => handleDelete(content.id)}><BsIcons.BsTrash3Fill /><span>Delete</span></div>
                                 </div>
                             </div>
