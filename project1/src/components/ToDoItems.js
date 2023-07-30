@@ -11,7 +11,7 @@ function ToDoItems({ tasks }) {
     const [styling, setStyling] = useState(null)
 
     const [task, setTask] = useState('');
-    const [isDone, setIsDone] = useState(false);
+    const [isDone] = useState(false);
 
     useEffect(() => {
         setTask(`${popupContent.map((content) => content.task)}`)
@@ -39,7 +39,7 @@ function ToDoItems({ tasks }) {
 
     const handleDone = (id) => {
 
-        const item = { task, isDone }
+        const item = { task, isDone: true }
 
         fetch(`http://localhost:3500/items/${id}`, {
             method: 'PUT',

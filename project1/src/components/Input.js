@@ -7,7 +7,7 @@ function Input() {
     const formRef = useRef();
 
     const [task, setTask] = useState("")
-    const [isDone, setIsDone] = useState(false)
+    const [isDone] = useState(false)
     const [disable, setDisable] = useState(true)
 
     const handleItems = (e) => {
