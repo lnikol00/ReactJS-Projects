@@ -13,7 +13,7 @@ function App() {
     base: "https://api.openweathermap.org/data/2.5/"
   }
 
-  const search = evt => {
+  const search = (evt) => {
     if (evt.key === "Enter") {
       fetch(`${api.base}weather?q=${query}&appid=${api.key}&units=metric`)
         .then(res => res.json())
