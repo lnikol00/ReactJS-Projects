@@ -22,7 +22,7 @@ function MainWeather({ weather, dateBuilder }) {
                         <div className={styles.infoContainer}>
                             <span>Min: {Math.round(weather.main.temp_min)} °C</span>
                             <span>Max: {Math.round(weather.main.temp_max)} °C</span>
-                            <span>Preassure: {Math.round(weather.main.pressure)} hPa</span>
+                            <span>Pressure: {Math.round(weather.main.pressure)} hPa</span>
                             <span>Hunidity: {Math.round(weather.main.humidity)} %</span>
                         </div>
                     </div>
