@@ -7,7 +7,6 @@ function App() {
 
   const [query, setQuery] = useState('');
   const [weather, setWeather] = useState({})
-
   const api = {
     key: "4f8e795dcd6dbf7b9f5276bff095ffc1",
     base: "https://api.openweathermap.org/data/2.5/"
