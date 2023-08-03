@@ -1,0 +1,53 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7%;
+}
+
+.mainContainer .formContainer {
+    width: 400px;
+    height: 300px;
+    background-color: blue;
+    border-radius: 16px;
+    box-shadow: 1px 2px 5px black;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 15px;
+    padding: 30px;
+}
+
+.formContainer div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1em;
+    color: white;
+}
+
+.formContainer input[type=number] {
+    width: 50px;
+    height: 25px;
+    padding-left: 5px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.formContainer input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.formContainer button {
+    padding: 10px 0;
+    background-color: rgb(180, 49, 49);
+    color: white;
+    outline: none;
+    border: none;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 1em;
+}
