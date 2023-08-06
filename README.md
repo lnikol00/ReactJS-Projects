@@ -2,6 +2,6 @@
 
 5 simple beginer projects made with ReactJS:
 
-* To Do List
-* Weather App
-* Password generator
+* Project 1: To Do List
+* Project 2: Weather App
+* Project 3: Password generator
