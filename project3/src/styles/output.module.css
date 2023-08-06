@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding-top: 30px;
+    padding-top: 50px;
 }
 
 .mainContainer h1 {
@@ -21,4 +21,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.mainContainer p {
+    color: red;
+    font-weight: bolder;
 }

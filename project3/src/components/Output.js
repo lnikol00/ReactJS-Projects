@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from "../styles/output.module.css"
 
-function Output() {
+function Output({ password, error }) {
     return (
         <div className={styles.mainContainer}>
             <h1>Password Generator</h1>
             <div>
-                aa
+                {password}
+                <p>{error}</p>
             </div>
         </div>
     )
