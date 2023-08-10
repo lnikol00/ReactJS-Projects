@@ -1,0 +1,13 @@
+.square {
+    width: 100px;
+    height: 100px;
+    outline: none;
+    border: none;
+    border: 2px solid lightblue;
+    cursor: pointer;
+    font-size: 2em;
+}
+
+.square:hover {
+    background-color: lightblue;
+}
