@@ -2,12 +2,15 @@
     position: sticky;
     top: 0;
     z-index: 4;
+}
+
+.navbarContainer {
     height: 70px;
     background-color: black;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 5%;
+    padding: 0px 10%;
 }
 
 .logo img {
@@ -19,7 +22,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px;
+    gap: 20px;
 }
 
 .menu {
@@ -29,7 +32,7 @@
 .menu a {
     color: white;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1em;
 }
 
 .menu a:hover {

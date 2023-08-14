@@ -24,25 +24,27 @@ function Header() {
 
     return (
         <div className={styles.mainContainer}>
-            <div className={styles.logo}>
-                <img alt='logo' src={logoImage} />
-            </div>
-            <nav className={open ? `${styles.navbar}` : `${styles.navbar} ${styles.navbarClosed}`}>
-                {
-                    navbar.map((items, index) => {
-                        return (
-                            <ul className={styles.menu} key={index}>
-                                <li><Link to={`${items.url}`}>{items.title}</Link></li>
-                            </ul>
-                        )
-                    })
-                }
+            <nav className={styles.navbarContainer}>
+                <div className={styles.logo}>
+                    <img alt='logo' src={logoImage} />
+                </div>
+                <div className={open ? `${styles.navbar}` : `${styles.navbar} ${styles.navbarClosed}`}>
+                    {
+                        navbar.map((items, index) => {
+                            return (
+                                <ul className={styles.menu} key={index}>
+                                    <li><Link to={`${items.url}`}>{items.title}</Link></li>
+                                </ul>
+                            )
+                        })
+                    }
+                </div>
+                <div className={styles.toggleActive} onClick={openNavbar}>
+                    <div className={bars}></div>
+                    <div className={bars}></div>
+                    <div className={bars}></div>
+                </div>
             </nav>
-            <div className={styles.toggleActive} onClick={openNavbar}>
-                <div className={bars}></div>
-                <div className={bars}></div>
-                <div className={bars}></div>
-            </div>
         </div >
     )
 }

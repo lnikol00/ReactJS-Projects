@@ -1,10 +1,12 @@
 import React from 'react'
+import AnimatedPage from '../components/context/AnimatedPage'
+
 
 function Menu() {
     return (
-        <div>
+        <AnimatedPage>
 
-        </div>
+        </AnimatedPage>
     )
 }
 
