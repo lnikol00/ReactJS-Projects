@@ -1,0 +1,116 @@
+.mainContainer {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    height: 70px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 5%;
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.menu {
+    list-style: none;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+.toggleActive {
+    display: none;
+}
+
+@media screen and (max-width:1200px) {
+    .navbar {
+        justify-content: flex-start;
+        flex-direction: column;
+        position: absolute;
+        top: 4.4em;
+        height: 100vh;
+        width: 350px;
+        right: 0;
+        background-color: lightgray;
+        padding: 20px 0;
+        gap: 15px;
+        opacity: 1;
+        transition: all 0.7s ease;
+    }
+
+    .navbarClosed {
+        right: -100%;
+    }
+
+    .menu {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: lightgray;
+        width: 80%;
+        height: 60px;
+        border-radius: 8px;
+        cursor: pointer;
+    }
+
+    .menu:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .menu a {
+        color: black;
+    }
+
+    .menu a:hover {
+        text-decoration: none;
+    }
+
+    .toggleActive {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 0.5em;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .toggleActive div {
+        background-color: white;
+        width: 2em;
+        height: 0.2em;
+        border-radius: 8px;
+        transition: all 0.5s ease;
+    }
+
+    .barsOpen:nth-child(1) {
+        transform: rotate(45deg) translate(0.5em, 0.45em);
+    }
+
+    .barsOpen:nth-child(2) {
+        transform: scale(0.1);
+    }
+
+    .barsOpen:nth-child(3) {
+        transform: rotate(-45deg) translate(0.5em, -0.5em);
+    }
+}
