@@ -1,10 +1,10 @@
 import { AnimatePresence } from 'framer-motion';
 import React from 'react'
 import { Routes, Route, useLocation } from "react-router-dom";
-import Home from '../../pages/Home'
-import About from '../../pages/About'
-import Contact from '../../pages/Contact'
-import Menu from '../../pages/Menu'
+import Home from '../../pages/home/Home'
+import About from '../../pages/about/About'
+import Contact from '../../pages/contact/Contact'
+import Menu from '../../pages/menu/Menu'
 
 
 function AnimatedRoutes() {

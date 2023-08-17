@@ -16,7 +16,7 @@ export const NavbarItems = [
         url: '/menu',
     },
     {
-        title: 'Orders',
+        title: 'Orders & Messages',
         url: '/orders',
     },
 ]

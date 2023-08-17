@@ -1,7 +1,7 @@
 import React from 'react'
-import AnimatedPage from '../components/context/AnimatedPage'
-import styles from "../styles/about.module.css"
-import aboutImage from "../images/about.jpg"
+import AnimatedPage from '../../components/context/AnimatedPage'
+import styles from "../../styles/about.module.css"
+import aboutImage from "../../images/about.jpg"
 
 function About() {
     return (
