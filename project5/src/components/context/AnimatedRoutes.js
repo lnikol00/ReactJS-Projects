@@ -5,6 +5,7 @@ import Home from '../../pages/home/Home'
 import About from '../../pages/about/About'
 import Contact from '../../pages/contact/Contact'
 import Menu from '../../pages/menu/Menu'
+import Orders from '../../pages/orders/Orders';
 
 
 function AnimatedRoutes() {
@@ -18,6 +19,7 @@ function AnimatedRoutes() {
                 <Route path='about-us' element={<About />} />
                 <Route path='contact' element={<Contact />} />
                 <Route path='menu' element={<Menu />} />
+                <Route path='orders' element={<Orders />} />
             </Routes>
         </AnimatePresence>
     )
