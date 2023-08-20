@@ -1,7 +1,7 @@
 .mainContainer {
     position: sticky;
     top: 0;
-    z-index: 4;
+    z-index: 999;
 }
 
 .navbarContainer {
@@ -11,6 +11,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0px 10%;
+    z-index: 4;
 }
 
 .logo img {
@@ -49,7 +50,7 @@
         flex-direction: column;
         position: absolute;
         top: 4.4em;
-        height: 100vh;
+        height: 88.6vh;
         width: 350px;
         right: 0;
         background-color: lightgray;
@@ -57,10 +58,12 @@
         gap: 15px;
         opacity: 1;
         transition: all 0.7s ease;
+        z-index: 3;
     }
 
     .navbarClosed {
-        right: -100%;
+        left: -100%;
+        opacity: 0;
     }
 
     .menu {

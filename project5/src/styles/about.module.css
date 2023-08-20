@@ -26,3 +26,15 @@
     font-size: 1.1em;
     line-height: 25px;
 }
+
+@media screen and (max-width: 1200px) {
+    .text {
+        padding: 5% 15%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .text {
+        padding: 5% 10%;
+    }
+}

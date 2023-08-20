@@ -96,4 +96,30 @@ body,
         display: flex;
         flex-direction: column;
     }
+
+    .image {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:900px) {
+
+    .image {
+        width: 100%;
+        height: 350px;
+    }
+
+    .formContainer {
+        padding: 2em 0;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .formContainer input {
+        width: 350px;
+    }
+
+    .formContainer textarea {
+        width: 350px;
+    }
 }

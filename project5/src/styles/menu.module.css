@@ -6,10 +6,29 @@
     padding-bottom: 3em;
 }
 
-.mainContainer h1 {
-    padding: 1.2em 0;
+.heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.heading span {
+    position: absolute;
+}
+
+.heading h1 {
+    padding: 1.2em;
     font-size: 3em;
     font-family: 'Dancing Script', cursive;
+}
+
+.heading a {
+    color: black;
+}
+
+.heading svg {
+    font-size: 3em;
+    cursor: pointer;
 }
 
 .menuContainer {
@@ -47,4 +66,28 @@
 
 .menuItems p {
     padding: 10px 20px;
+}
+
+.menuItems button {
+    margin-bottom: 10px;
+    padding: 8px 16px;
+    font-size: 1em;
+    outline: none;
+    border: none;
+    background-color: black;
+    color: white;
+    border-radius: 0px 8px 8px 0px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 1000px) {
+    .menuContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .menuContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
