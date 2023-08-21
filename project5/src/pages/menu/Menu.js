@@ -27,15 +27,15 @@ function Menu() {
                     {error && <div className={styles.error}>{error}</div>}
                     {loading && <div className={styles.loading}>Loading ...</div>}
                     {data &&
-                        data.map((items) => {
+                        data.map((item) => {
                             return (
-                                <div className={styles.menuItems} key={items.id}>
-                                    <img src={items.image} alt='slika' />
-                                    <h1>{items.title}</h1>
+                                <div className={styles.menuItems} key={item.id}>
+                                    <img src={item.image} alt='slika' />
+                                    <h1>{item.title}</h1>
                                     <p>
-                                        €{items.price}
+                                        €{item.price}
                                     </p>
-                                    <button onClick={() => addItem(items)}>Order</button>
+                                    <button onClick={() => addItem(item)}>Order</button>
                                 </div>
                             )
                         })

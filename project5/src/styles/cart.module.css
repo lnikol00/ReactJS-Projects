@@ -1,0 +1,160 @@
+.mainContainer {
+    padding: 3em;
+}
+
+.mainContainer h3 {
+    text-align: center;
+    padding-bottom: 1em;
+    font-size: 2.3em;
+}
+
+.cartContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 3em;
+}
+
+.shopContainer {
+    padding: 20px;
+    width: 65%;
+}
+
+.items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 20px;
+}
+
+.clear {
+    color: gray;
+    font-size: 1em;
+    margin: 0 0 0 35%;
+    cursor: pointer;
+}
+
+.remove {
+    color: gray;
+    cursor: pointer;
+}
+
+.totalPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 0 0 35%;
+    font-size: 1.1em;
+    font-weight: bolder;
+}
+
+.checkoutContainer {
+    margin-top: 15px;
+    width: 35%;
+}
+
+.checkoutContainer input {
+    height: 40px;
+    width: 65%;
+    border: 1px solid lightgray;
+    padding-left: 15px;
+}
+
+.checkoutContainer button {
+    height: 40px;
+    background-color: black;
+    color: white;
+    width: 35%;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.checkoutContainer .info {
+    padding: 20px 0 5px;
+}
+
+.info div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.info span {
+    color: gray;
+    font-size: 16px;
+}
+
+.estimatedTotal span {
+    color: black;
+    font-size: 20px;
+}
+
+.checkoutButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.checkoutButton p {
+    color: gray;
+}
+
+.checkoutButton b {
+    color: red;
+}
+
+.checkoutButton button {
+    width: 70%;
+    height: 45px;
+    font-size: 1.1em;
+}
+
+.in {
+    display: flex;
+    justify-content: space-between;
+}
+
+.in img {
+    width: 250px;
+    height: 150px;
+}
+
+.in h5 {
+    font-size: 1.4em;
+    padding: 0;
+}
+
+.in div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.quantity {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quantity button {
+    width: 50px;
+    height: 30px;
+    outline: none;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.subrtractButton {
+    font-size: 1.2em;
+}
+
+.title {
+    display: flex;
+    justify-content: space-between;
+}
