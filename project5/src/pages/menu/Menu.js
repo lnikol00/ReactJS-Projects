@@ -18,7 +18,7 @@ function Menu() {
             <div className={styles.mainContainer}>
                 <div className={styles.heading}>
                     <h1>Our Menu</h1>
-                    <div className={styles.aaa}>
+                    <div className={styles.links}>
                         <Link to='/cart'><GiIcons.GiShoppingBag /></Link>
                         <span>{totalItems}</span>
                     </div>

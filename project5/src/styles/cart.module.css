@@ -158,3 +158,45 @@
     display: flex;
     justify-content: space-between;
 }
+
+@media screen and (max-width: 1200px) {
+    .cartContainer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .shopContainer {
+        width: 100%;
+    }
+
+    .checkoutContainer {
+        width: 80%;
+        padding-bottom: 50px;
+    }
+
+}
+
+@media screen and (max-width: 850px) {
+    .mainContainer {
+        padding: 1em;
+    }
+
+    .mainContainer h3 {
+        padding-bottom: 0;
+    }
+
+    .in {
+        align-items: center;
+        gap: 20px;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .in div {
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 20px;
+    }
+}

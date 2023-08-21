@@ -84,6 +84,10 @@
     .menuContainer {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .links {
+        padding-right: 50px;
+    }
 }
 
 @media screen and (max-width: 700px) {

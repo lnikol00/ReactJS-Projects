@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from '../../styles/cart.module.css'
 import AnimatedPage from '../../components/context/AnimatedPage'
 import * as BsIcons from 'react-icons/bs'
@@ -16,6 +16,24 @@ function Cart() {
         removeItem,
         emptyCart,
     } = useCart();
+
+    const [value, setValue] = useState(0)
+    const [totalValue, setTotalValue] = useState(0)
+    const [freeShipping, setFreeShipping] = useState(0)
+
+    useEffect(() => {
+
+        setTotalValue(cartTotal + value)
+
+        if (cartTotal < 30) {
+            setValue(5)
+            setFreeShipping(30 - cartTotal)
+        }
+        else {
+            setValue(0)
+            setFreeShipping(0)
+        }
+    }, [cartTotal, value])
 
     if (isEmpty) return (
         <AnimatedPage>
@@ -48,15 +66,15 @@ function Cart() {
                             </div>
                             <div>
                                 <span>Total</span>
-                                <span>€{cartTotal}</span>
+                                <span>€0</span>
                             </div>
                             <div className={styles.estimatedTotal}>
                                 <span>Estimated Total</span>
-                                <span>€{cartTotal}</span>
+                                <span>€0</span>
                             </div>
                         </div>
                         <div className={styles.checkoutButton}>
-                            <p>You're <b>€0</b> awway from free shipping!</p>
+                            <p>You're <b>€0</b> away from free shipping!</p>
                             <button>
                                 <GiIcons.GiShoppingBag /> Checkout
                             </button>
@@ -138,7 +156,7 @@ function Cart() {
                         <div className={styles.info}>
                             <div>
                                 <span>Shipping cost</span>
-                                <span>TBD</span>
+                                <span>€{value}</span>
                             </div>
                             <div>
                                 <span>Discount</span>
@@ -150,11 +168,11 @@ function Cart() {
                             </div>
                             <div className={styles.estimatedTotal}>
                                 <span>Estimated Total</span>
-                                <span>€{cartTotal.toFixed(2)}</span>
+                                <span>€{totalValue.toFixed(2)}</span>
                             </div>
                         </div>
                         <div className={styles.checkoutButton}>
-                            <p>You're <b>€0</b> awway from free shipping!</p>
+                            <p>You're <b>€{freeShipping.toFixed(2)}</b> away from free shipping!</p>
                             <button>
                                 <GiIcons.GiShoppingBag /> Checkout
                             </button>
