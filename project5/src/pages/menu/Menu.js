@@ -6,7 +6,6 @@ import * as GiIcons from 'react-icons/gi'
 import { Link } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
 
-
 function Menu() {
 
     const { data, loading, error } = useFetch(" http://localhost:3500/menu")

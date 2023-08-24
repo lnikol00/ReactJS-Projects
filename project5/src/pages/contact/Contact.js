@@ -18,6 +18,7 @@ function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log(`${name}, ${email}, ${message}`)
         formRef.current.reset()
         setName('')
         setEmail('')

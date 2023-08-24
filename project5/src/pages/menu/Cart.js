@@ -1,11 +1,35 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import styles from '../../styles/cart.module.css'
 import AnimatedPage from '../../components/context/AnimatedPage'
 import * as BsIcons from 'react-icons/bs'
 import * as GiIcons from 'react-icons/gi'
 import { useCart } from 'react-use-cart'
+import { inputs } from './Inputs'
+import FormInput from './FormInput'
 
 function Cart() {
+
+    const [open, setOpen] = useState(false)
+
+    const handleChange = () => {
+        setOpen(!open)
+    }
+
+    const form = useRef()
+
+    const [values, setValues] = useState({
+        fullName: "",
+        address: "",
+        phoneNumber: ""
+    })
+
+    const onChange = (e) => {
+        setValues({ ...values, [e.target.name]: e.target.value })
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+    }
 
     const {
         isEmpty,
@@ -173,11 +197,20 @@ function Cart() {
                         </div>
                         <div className={styles.checkoutButton}>
                             <p>You're <b>€{freeShipping.toFixed(2)}</b> away from free shipping!</p>
-                            <button>
+                            <button onClick={handleChange}>
                                 <GiIcons.GiShoppingBag /> Checkout
                             </button>
                         </div>
                     </div>
+                </div>
+                <div className={open ? `${styles.inputContainer}` : `${styles.closed}`}>
+                    <form onSubmit={handleSubmit} ref={form}>
+                        <h1><GiIcons.GiShoppingBag /> Checkout</h1>
+                        {inputs.map((input) => (
+                            <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} />
+                        ))}
+                        <button>Završi kupnju</button>
+                    </form>
                 </div>
             </div>
         </AnimatedPage>
