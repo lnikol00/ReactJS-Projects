@@ -6,7 +6,7 @@ export const inputs = [
         placeholder: "Upišite ime",
         errorMessage: "Ime mora imati izmeđju 3-16 znakova i ne smije uključivati znakove ili brojeve!",
         label: "Ime i prezime",
-        pattern: "^[A-Za-z]{3,16}?$",
+        pattern: "^[A-Za-z_ ]{3,16}?$",
         required: true,
     },
     {
@@ -25,7 +25,7 @@ export const inputs = [
         placeholder: "+385** / *** / ****",
         errorMessage: "Broj mobitela može zadržavati samo brojeve",
         label: "Broj mobitela",
-        pattern: "^4[0-9]{12}(?:[0-9]{3})?$",
+        pattern: "[0-9]{9,10}$",
         maxlenght: '19',
         required: true,
     }

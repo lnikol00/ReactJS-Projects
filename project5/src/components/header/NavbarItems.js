@@ -22,10 +22,5 @@ export const NavbarItems = [
         title: 'Menu',
         icon: <MdIcons.MdOutlineRestaurantMenu />,
         url: '/menu',
-    },
-    {
-        title: 'Orders',
-        icon: <BsIcons.BsListCheck />,
-        url: '/orders',
-    },
+    }
 ]

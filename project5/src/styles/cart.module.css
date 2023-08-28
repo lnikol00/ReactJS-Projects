@@ -206,12 +206,29 @@
     display: none;
 }
 
-.inputContainer input:invalid[focuse="true"] {
+.inputContainer input:invalid[focused="true"] {
     border: 1px solid red;
 }
 
 input:invalid[focused="true"]~span {
     display: block;
+}
+
+.messageContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px;
+}
+
+.messageContainer svg {
+    font-size: 5em;
+}
+
+.messageContainer p {
+    font-size: 20px;
 }
 
 .inputContainer button {
@@ -271,6 +288,10 @@ input:invalid[focused="true"]~span {
 @media screen and (max-width:600px) {
     .inputContainer {
         width: 350px;
+    }
+
+    .inputContainer span {
+        text-align: center;
     }
 
     .inputContainer input {

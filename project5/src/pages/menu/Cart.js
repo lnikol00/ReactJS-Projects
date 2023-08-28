@@ -6,10 +6,12 @@ import * as GiIcons from 'react-icons/gi'
 import { useCart } from 'react-use-cart'
 import { inputs } from './Inputs'
 import FormInput from './FormInput'
+import { useNavigate } from 'react-router-dom'
 
 function Cart() {
 
     const [open, setOpen] = useState(false)
+    const [message, setMessage] = useState(true)
 
     const handleChange = () => {
         setOpen(!open)
@@ -29,6 +31,15 @@ function Cart() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        setMessage(!message)
+    }
+
+    const navigate = useNavigate()
+
+    const handleReturn = () => {
+        setMessage(true)
+        emptyCart()
+        navigate(-1)
     }
 
     const {
@@ -204,13 +215,21 @@ function Cart() {
                     </div>
                 </div>
                 <div className={open ? `${styles.inputContainer}` : `${styles.closed}`}>
-                    <form onSubmit={handleSubmit} ref={form}>
-                        <h1><GiIcons.GiShoppingBag /> Checkout</h1>
-                        {inputs.map((input) => (
-                            <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} />
-                        ))}
-                        <button>Završi kupnju</button>
-                    </form>
+                    {message ?
+                        <form onSubmit={handleSubmit} ref={form}>
+                            <h1><GiIcons.GiShoppingBag /> Checkout</h1>
+                            {inputs.map((input) => (
+                                <FormInput key={input.id} {...input} value={values[input.name]} onChange={onChange} />
+                            ))}
+                            <button>Završi kupnju</button>
+                        </form>
+                        :
+                        <div className={styles.messageContainer}>
+                            <GiIcons.GiShoppingBag />
+                            <p>Thanks for shopping. Our delivery driver will contact you when your order is finished.</p>
+                            <button onClick={handleReturn}>Return to Menu</button>
+                        </div>
+                    }
                 </div>
             </div>
         </AnimatedPage>
