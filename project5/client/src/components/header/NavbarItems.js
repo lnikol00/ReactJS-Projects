@@ -1,5 +1,6 @@
 import * as AiIcons from 'react-icons/ai'
 import * as BsIcons from 'react-icons/bs'
+import * as BiIcons from 'react-icons/bi'
 import * as MdIcons from 'react-icons/md'
 
 export const NavbarItems = [
@@ -22,5 +23,10 @@ export const NavbarItems = [
         title: 'Menu',
         icon: <MdIcons.MdOutlineRestaurantMenu />,
         url: '/menu',
-    }
+    },
+    {
+        title: 'Log in',
+        icon: <BiIcons.BiSolidUser />,
+        url: '/login',
+    },
 ]
