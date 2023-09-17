@@ -1,0 +1,29 @@
+.mainContainer {
+    margin: 50px;
+    text-align: center;
+}
+
+.mainContainer svg {
+    font-size: 13rem;
+    color: gray;
+}
+
+.mainContainer h2 {
+    font-size: 6rem;
+    color: gray;
+}
+
+.mainContainer span {
+    font-size: 18px;
+}
+
+.mainContainer .notFound {
+    padding: 20px 0px;
+    font-size: 35px;
+    color: gray;
+}
+
+.mainContainer p {
+    padding: 10px 0px;
+    font-size: 18px;
+}

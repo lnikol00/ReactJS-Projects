@@ -8,6 +8,8 @@ import Menu from '../../pages/menu/Menu'
 import Cart from '../../pages/menu/Cart'
 import Login from '../../pages/login/Login';
 import Register from '../../pages/login/Register';
+import User from '../../pages/login/User';
+import NotFound from '../../pages/not-found/NotFound';
 
 function AnimatedRoutes() {
 
@@ -23,6 +25,8 @@ function AnimatedRoutes() {
                 <Route path='cart' element={<Cart />} />
                 <Route path='login' element={<Login />} />
                 <Route path='register' element={<Register />} />
+                <Route path='user' element={<User />} />
+                <Route path='*' element={<NotFound />} />
             </Routes>
         </AnimatePresence>
     )

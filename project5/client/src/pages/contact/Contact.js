@@ -9,12 +9,7 @@ function Contact() {
     const [email, setEmail] = useState('')
     const [message, setMessage] = useState('')
 
-    const nameRef = useRef();
     const formRef = useRef();
-
-    useEffect(() => {
-        nameRef.current.focus()
-    }, [])
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -43,7 +38,6 @@ function Contact() {
                                 value={name}
                                 placeholder='Enter full name...'
                                 onChange={(e) => setName(e.target.value)}
-                                ref={nameRef}
                                 required
                             />
                         </div>
