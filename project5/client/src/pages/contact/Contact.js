@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 import AnimatedPage from '../../components/context/AnimatedPage'
 import styles from '../../styles/contact.module.css'
 import contactImage from '../../images/contact.jpg'

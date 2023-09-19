@@ -53,10 +53,10 @@ function User() {
                                         />
                                     </div>
                                     <div>
-                                        <label>Username</label>
+                                        <label>Email</label>
                                         <input
-                                            type='text'
-                                            placeholder='Change username...'
+                                            type='email'
+                                            placeholder='Change email...'
                                         />
                                     </div>
                                     <div>

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 function Register() {
 
     const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [matchPassword, setMatchPassword] = useState('');
 
@@ -33,6 +34,19 @@ function Register() {
                             value={name}
                             placeholder='Enter full name...'
                             onChange={(e) => setName(e.target.value)}
+                            ref={nameRef}
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label>
+                            Email
+                        </label>
+                        <input
+                            type='email'
+                            value={email}
+                            placeholder='Enter email...'
+                            onChange={(e) => setEmail(e.target.value)}
                             ref={nameRef}
                             required
                         />

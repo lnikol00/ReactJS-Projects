@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "../../styles/menu.module.css"
 import AnimatedPage from '../../components/context/AnimatedPage'
 import * as GiIcons from 'react-icons/gi'
 import { Link } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
-import products from "../../data/Products"
+import axios from "axios"
 
 function Menu() {
+
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        const fetchproduct = async () => {
+            const { data } = await axios.get("/api/products");
+            setProducts(data);
+        }
+        fetchproduct();
+    }, [])
+
     const { addItem, totalItems } = useCart()
 
     return (
