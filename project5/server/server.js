@@ -1,16 +1,20 @@
 import express from "express";
-import products from "./data/Products.js";
 import dotenv from "dotenv"
 import connectDatabase from "./config/MongoDb.js";
+import ImportData from "./DataImport.js";
+import productRoute from "./ProductRoutes.js";
 
 dotenv.config();
 connectDatabase();
 const app = express();
 
-//LOAD PRODUCT FROM SERVER
-app.get("/api/products", (req, res) => {
-    res.json(products)
-});
+//API
+app.use("/api/import", ImportData);
+app.use("/api/products", productRoute);
+
+app.get("/", (req, res) => {
+    res.send("API is Running....");
+})
 
 const PORT = process.env.PORT;
 
