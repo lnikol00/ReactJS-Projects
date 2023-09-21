@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { CartProvider } from 'react-use-cart';
+import store from './Redux/store';
+import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <CartProvider>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
-  </CartProvider>
+  <Provider store={store}>
+    <CartProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </CartProvider>
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
