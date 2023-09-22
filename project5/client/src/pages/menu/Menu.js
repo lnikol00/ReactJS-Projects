@@ -4,18 +4,19 @@ import AnimatedPage from '../../components/context/AnimatedPage'
 import * as GiIcons from 'react-icons/gi'
 import { Link } from 'react-router-dom'
 import { useCart } from 'react-use-cart'
-import axios from "axios"
+import { useDispatch, useSelector } from "react-redux"
+import { listProduct } from '../../Redux/Actions/ProductActions'
 
 function Menu() {
 
-    const [products, setProducts] = useState([]);
+    const dispatch = useDispatch()
+
+    const productList = useSelector((state) => state.productList);
+    const { loading, error, products } = productList;
+
     useEffect(() => {
-        const fetchproduct = async () => {
-            const { data } = await axios.get("/api/products");
-            setProducts(data);
-        }
-        fetchproduct();
-    }, [])
+        dispatch(listProduct());
+    }, [dispatch])
 
     const { addItem, totalItems } = useCart()
 
@@ -30,18 +31,26 @@ function Menu() {
                     </div>
                 </div>
                 <div className={styles.menuContainer}>
-                    {products.map((item) => {
-                        return (
-                            <div className={styles.menuItems} key={item.id}>
-                                <img src={item.image} alt='slika' />
-                                <h1>{item.title}</h1>
-                                <p>
-                                    €{item.price}
-                                </p>
-                                <button onClick={() => addItem(item)}>Order</button>
-                            </div>
-                        )
-                    })}
+                    {
+                        loading ? (<p>Loading...</p>) : error ? (<p>Something went wrong</p>)
+                            :
+                            (
+                                <>
+                                    {products.map((item) => {
+                                        return (
+                                            <div className={styles.menuItems} key={item.id}>
+                                                <img src={item.image} alt='slika' />
+                                                <h1>{item.title}</h1>
+                                                <p>
+                                                    €{item.price}
+                                                </p>
+                                                <button onClick={() => addItem(item)}>Order</button>
+                                            </div>
+                                        )
+                                    })}
+                                </>
+                            )
+                    }
                 </div>
             </div>
         </AnimatedPage>
