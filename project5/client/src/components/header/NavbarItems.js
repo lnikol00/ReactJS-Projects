@@ -22,7 +22,7 @@ export const NavbarItems = [
     {
         title: 'Menu',
         icon: <MdIcons.MdOutlineRestaurantMenu />,
-        url: '/menu',
+        url: '/products',
     },
     {
         title: 'Log in',

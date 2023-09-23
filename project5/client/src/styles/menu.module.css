@@ -66,18 +66,12 @@
 
 .menuItems p {
     padding: 10px 20px;
+    margin-bottom: 15px;
 }
 
-.menuItems button {
-    margin-bottom: 10px;
-    padding: 8px 16px;
-    font-size: 1em;
-    outline: none;
-    border: none;
-    background-color: black;
-    color: white;
-    border-radius: 0px 8px 8px 0px;
-    cursor: pointer;
+.menuItems a {
+    color: black;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 1000px) {

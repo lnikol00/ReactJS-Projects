@@ -10,6 +10,7 @@ import Login from '../../pages/login/Login';
 import Register from '../../pages/login/Register';
 import User from '../../pages/login/User';
 import NotFound from '../../pages/not-found/NotFound';
+import SingleProduct from '../../pages/menu/SingleProduct';
 
 function AnimatedRoutes() {
 
@@ -21,8 +22,9 @@ function AnimatedRoutes() {
                 <Route index element={<Home />} />
                 <Route path='about-us' element={<About />} />
                 <Route path='contact' element={<Contact />} />
-                <Route path='menu' element={<Menu />} />
-                <Route path='cart' element={<Cart />} />
+                <Route path='products' element={<Menu />} />
+                <Route path='products/:id' element={<SingleProduct />} />
+                <Route path='cart/:id?' element={<Cart />} />
                 <Route path='login' element={<Login />} />
                 <Route path='register' element={<Register />} />
                 <Route path='user' element={<User />} />
