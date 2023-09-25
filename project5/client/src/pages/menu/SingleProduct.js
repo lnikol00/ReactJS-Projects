@@ -44,7 +44,9 @@ function SingleProduct() {
                                     </div>
                                     <div>
                                         <b>Quantity: </b>
-                                        <select>
+                                        <select
+                                            onChange={(e) => setQty(e.target.value)}
+                                        >
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>

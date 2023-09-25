@@ -16,6 +16,11 @@ function Cart() {
 
     const dispatch = useDispatch()
 
+    const cart = useSelector((state) => state.cart)
+    const { cartItems } = cart;
+
+    const total = cartItems.reduce((a, i) => a + i.qty * i.price, 0).toFixed(2)
+
     useEffect(() => {
         if (productId) {
             dispatch(addToCart(productId, qty))
@@ -27,114 +32,107 @@ function Cart() {
     const [totalValue, setTotalValue] = useState(0)
     const [freeShipping, setFreeShipping] = useState(0)
 
-    // useEffect(() => {
-
-    //     setTotalValue(cartTotal + value)
-
-    //     if (cartTotal < 30) {
-    //         setValue(5)
-    //         setFreeShipping(30 - cartTotal)
-    //     }
-    //     else {
-    //         setValue(0)
-    //         setFreeShipping(0)
-    //     }
-    // }, [cartTotal, value])
-
     return (
         <AnimatedPage>
             <div className={styles.mainContainer}>
                 <h3><BsIcons.BsBag /> My Cart</h3>
-                <div className={styles.cartContainer}>
-                    <div className={styles.shopContainer}>
-                        <div className={styles.items}>
-                            {/* {items.map((item) => {
-                                const addButton = () => {
-                                    updateItemQuantity(item.id, item.quantity + 1)
-                                }
+                {
+                    cartItems.lenght === 0 ?
+                        (
+                            <div className={styles.cartContainer}>
+                                Empty
+                            </div>
+                        ) :
+                        (
+                            <div className={styles.cartContainer}>
+                                <div className={styles.shopContainer}>
+                                    <div className={styles.items}>
 
-                                const subrtractButton = () => {
-                                    updateItemQuantity(item.id, item.quantity === 1 ? item.quantity : item.quantity - 1)
-                                }
+                                        {cartItems.map((item) => {
+                                            return (
+                                                <div className={styles.in}>
+                                                    <img src={item.image} alt={item.title} />
+                                                    <div className={styles.title}>
+                                                        <h5>{item.title}</h5>
+                                                        <p className={styles.remove}>Remove</p>
+                                                    </div>
+                                                    <div>
+                                                        <span>Each</span>
+                                                        <b>€{item.price}</b>
+                                                    </div>
+                                                    <div>
+                                                        <span>Quantity</span>
+                                                        <div className={styles.quantity}>
+                                                            <select
+                                                                value={item.qty}
+                                                                onChange={(e) => dispatch(addToCart(item.product, Number(e.target.value)))}
+                                                            >
+                                                                <option>1</option>
+                                                                <option>2</option>
+                                                                <option>3</option>
+                                                                <option>4</option>
+                                                                <option>5</option>
+                                                                <option>6</option>
+                                                                <option>7</option>
+                                                                <option>8</option>
+                                                                <option>9</option>
+                                                                <option>10</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                        <span>Total</span>
+                                                        <b>€ {item.price}</b>
+                                                    </div>
+                                                </div>
+                                            )
+                                        })}
 
-                                return (
-                                    <div key={item.id} className={styles.in}>
-                                        <img src={item.image} alt='slika' />
-                                        <div className={styles.title}>
-                                            <h5>{item.title}</h5>
-                                            <p className={styles.remove} onClick={() => removeItem(item.id)}>Remove</p>
+                                        <div className={styles.clear} >
+                                            <p>Clear cart</p>
+                                        </div>
+                                    </div>
+                                    <div className={styles.totalPrice}>
+                                        <span>{cartItems.lenght} Items</span>
+                                        <span>€</span>
+                                    </div>
+                                </div>
+                                <div className={styles.checkoutContainer}>
+                                    <input
+                                        type='number'
+                                        placeholder='Promo Code'
+                                    />
+                                    <button>Submit</button>
+                                    <div className={styles.info}>
+                                        <div>
+                                            <span>Shipping cost</span>
+                                            <span>€{value}</span>
                                         </div>
                                         <div>
-                                            <span>Each</span>
-                                            <b>€{item.price}</b>
-                                        </div>
-                                        <div>
-                                            <span>Quantity</span>
-                                            <div className={styles.quantity}>
-
-                                                <button
-                                                    onClick={addButton}
-                                                >
-                                                    +
-                                                </button>
-                                                <span >{item.quantity}</span>
-                                                <button
-                                                    onClick={subrtractButton}
-                                                >
-                                                    -
-                                                </button>
-                                            </div>
+                                            <span>Discount</span>
+                                            <span>-€0</span>
                                         </div>
                                         <div>
                                             <span>Total</span>
-                                            <b>€{Math.floor(item.price * item.quantity).toFixed(2)}</b>
+                                            <span>€ {total}</span>
+                                        </div>
+                                        <div className={styles.estimatedTotal}>
+                                            <span>Estimated Total</span>
+                                            <span>€</span>
                                         </div>
                                     </div>
-                                )
-                            })} */}
-                            <div className={styles.clear} >
-                                <p>Clear cart</p>
+                                    <div className={styles.checkoutButton}>
+                                        <p>You're <b>€{freeShipping.toFixed(2)}</b> away from free shipping!</p>
+                                        <button >
+                                            <GiIcons.GiShoppingBag /> Checkout
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div className={styles.totalPrice}>
-                            <span> Items</span>
-                            <span>€</span>
-                        </div>
-                    </div>
-                    <div className={styles.checkoutContainer}>
-                        <input
-                            type='number'
-                            placeholder='Promo Code'
-                        />
-                        <button>Submit</button>
-                        <div className={styles.info}>
-                            <div>
-                                <span>Shipping cost</span>
-                                <span>€{value}</span>
-                            </div>
-                            <div>
-                                <span>Discount</span>
-                                <span>-€0</span>
-                            </div>
-                            <div>
-                                <span>Total</span>
-                                <span>€</span>
-                            </div>
-                            <div className={styles.estimatedTotal}>
-                                <span>Estimated Total</span>
-                                <span>€</span>
-                            </div>
-                        </div>
-                        <div className={styles.checkoutButton}>
-                            <p>You're <b>€{freeShipping.toFixed(2)}</b> away from free shipping!</p>
-                            <button >
-                                <GiIcons.GiShoppingBag /> Checkout
-                            </button>
-                        </div>
-                    </div>
-                </div>
+                        )}
+
             </div>
-        </AnimatedPage>
+        </AnimatedPage >
     )
 }
 
