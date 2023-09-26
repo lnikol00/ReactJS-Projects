@@ -8,6 +8,21 @@
     font-size: 2.3em;
 }
 
+.continueShopping {
+    padding-top: 10px;
+}
+
+.continueShopping button {
+    padding: 16px 32px;
+    outline: none;
+    border: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+}
+
 .cartContainer {
     display: flex;
     justify-content: space-around;
@@ -27,13 +42,6 @@
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     padding: 20px;
-}
-
-.clear {
-    color: gray;
-    font-size: 1em;
-    margin: 0 0 0 35%;
-    cursor: pointer;
 }
 
 .remove {
@@ -115,6 +123,11 @@
     font-size: 1.1em;
 }
 
+.checkoutButton a {
+    color: white;
+    text-decoration: none;
+}
+
 .in {
     display: flex;
     justify-content: space-between;
@@ -142,16 +155,12 @@
     align-items: center;
 }
 
-.quantity button {
+.quantity select {
     width: 50px;
     height: 30px;
     outline: none;
     border: 1px solid black;
     cursor: pointer;
-}
-
-.subrtractButton {
-    font-size: 1.2em;
 }
 
 .title {

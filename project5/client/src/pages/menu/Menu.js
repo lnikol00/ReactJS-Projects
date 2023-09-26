@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import styles from "../../styles/menu.module.css"
 import AnimatedPage from '../../components/context/AnimatedPage'
 import * as GiIcons from 'react-icons/gi'
@@ -17,6 +17,9 @@ function Menu() {
         dispatch(listProduct());
     }, [dispatch])
 
+    const cart = useSelector((state) => state.cart)
+    const { cartItems } = cart;
+
     return (
         <AnimatedPage>
             <div className={styles.mainContainer}>
@@ -24,7 +27,7 @@ function Menu() {
                     <h1>Our Menu</h1>
                     <div className={styles.links}>
                         <Link to='/cart'><GiIcons.GiShoppingBag /></Link>
-                        <span></span>
+                        <span>{cartItems.length}</span>
                     </div>
                 </div>
                 <div className={styles.menuContainer}>

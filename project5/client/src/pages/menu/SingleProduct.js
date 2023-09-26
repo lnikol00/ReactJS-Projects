@@ -8,7 +8,7 @@ import { listProductDetails } from '../../Redux/Actions/ProductActions'
 function SingleProduct() {
     let navigate = useNavigate();
     const params = useParams();
-    const [qty, setQty] = useState(0);
+    const [qty, setQty] = useState(1);
     const productId = params.id;
     const dispatch = useDispatch();
 

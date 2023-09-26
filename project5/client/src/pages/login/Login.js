@@ -24,7 +24,7 @@ function Login() {
             <div className={styles.mainContainer}>
                 <h1>Log In</h1>
                 <form onSubmit={handleSubmit} ref={formRef}>
-                    <div>
+                    {/* <div>
                         <label>
                             Full Name
                         </label>
@@ -36,7 +36,7 @@ function Login() {
                             ref={nameRef}
                             required
                         />
-                    </div>
+                    </div> */}
                     <div>
                         <label>
                             Email
