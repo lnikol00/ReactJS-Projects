@@ -10,4 +10,6 @@ userRoute.post("/login", asyncHandler(userController.handleLogin));
 
 userRoute.get("/profile", protect, asyncHandler(userController.handleProfile));
 
+userRoute.post('/', asyncHandler(userController.handleRegister));
+
 export default userRoute;
