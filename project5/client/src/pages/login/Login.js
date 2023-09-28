@@ -4,6 +4,8 @@ import styles from "../../styles/login.module.css"
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { login } from "../../Redux/Actions/UserAction"
+import Loading from '../../components/messages/Loading'
+import Error from '../../components/messages/Error'
 
 function Login() {
     const [email, setEmail] = useState('')
@@ -24,11 +26,11 @@ function Login() {
     const userLogin = useSelector((state) => state.userLogin)
     const { error, loading, userInfo } = userLogin;
 
-    // useEffect(() => {
-    //     if (userInfo) {
-    //         navigate(redirect);
-    //     }
-    // }, [userInfo, navigate, redirect])
+    useEffect(() => {
+        if (userInfo) {
+            navigate(redirect);
+        }
+    }, [userInfo, navigate, redirect])
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -41,10 +43,10 @@ function Login() {
             <div className={styles.mainContainer}>
                 <h1>Log In</h1>
                 {
-                    error && <p>{error}</p>
+                    error && <Error>{error}</Error>
                 }
                 {
-                    loading && <p>Loading...</p>
+                    loading && <Loading />
                 }
                 <form onSubmit={handleSubmit} ref={formRef}>
                     <div>

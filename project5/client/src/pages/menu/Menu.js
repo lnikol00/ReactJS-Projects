@@ -5,6 +5,8 @@ import * as GiIcons from 'react-icons/gi'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { listProduct } from '../../Redux/Actions/ProductActions'
+import Loading from '../../components/messages/Loading'
+import Error from '../../components/messages/Error'
 
 function Menu() {
 
@@ -32,7 +34,7 @@ function Menu() {
                 </div>
                 <div className={styles.menuContainer}>
                     {
-                        loading ? (<p>Loading...</p>) : error ? (<p>Something went wrong</p>)
+                        loading ? (<Loading />) : error ? (<Error>Something went wrong</Error>)
                             :
                             (
                                 <>

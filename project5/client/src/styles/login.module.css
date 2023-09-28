@@ -49,6 +49,7 @@
     background-color: black;
     outline: none;
     border: none;
+    cursor: pointer;
 }
 
 .mainContainer a {
