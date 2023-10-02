@@ -89,6 +89,7 @@ body,
     background-color: black;
     outline: none;
     border: none;
+    cursor: pointer;
 }
 
 @media screen and (max-width:1200px) {

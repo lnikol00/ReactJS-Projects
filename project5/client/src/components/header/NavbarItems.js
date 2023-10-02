@@ -14,9 +14,5 @@ export const NavbarItems = [
     {
         title: 'Menu',
         url: '/products',
-    },
-    // {
-    //     title: 'Log in',
-    //     url: '/login',
-    // },
+    }
 ]

@@ -13,7 +13,7 @@ function Login() {
 
     const navigate = useNavigate();
     const location = useLocation();
-    const redirect = location.search ? location.search.split("=")[1] : "/";
+    const redirect = location.search ? String(location.search.split("=")[1]) : "/";
 
     const formRef = useRef();
     const nameRef = useRef();
@@ -30,12 +30,11 @@ function Login() {
         if (userInfo) {
             navigate(redirect);
         }
-    }, [userInfo, navigate, redirect])
+    }, [userInfo, redirect, navigate])
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(login(email, password));
-
     }
 
     return (
@@ -74,7 +73,7 @@ function Login() {
                             required
                         />
                     </div>
-                    <button>Log In</button>
+                    <button >Log In</button>
                     <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>Don't have account! Sign Up</Link>
                 </form>
             </div>

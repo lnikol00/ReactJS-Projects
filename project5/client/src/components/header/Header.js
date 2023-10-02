@@ -2,10 +2,13 @@ import React, { useState } from 'react'
 import styles from '../../styles/header.module.css'
 import logoImage from "../../images/logo.png"
 import { NavbarItems } from './NavbarItems'
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from 'react-router-dom'
+import { logout } from "../../Redux/Actions/UserAction"
+import Dropdown from 'react-bootstrap/Dropdown';
 
 function Header() {
+    const dispatch = useDispatch();
 
     const navbar = NavbarItems;
 
@@ -25,37 +28,50 @@ function Header() {
         setOpen(!open)
     }
 
+    const logoutHandler = () => {
+        dispatch(logout());
+    }
+
     return (
         <div className={styles.mainContainer}>
             <nav className={styles.navbarContainer}>
                 <div className={styles.logo}>
-                    <img alt='logo' src={logoImage} />
+                    <Link to="/">
+                        <img alt='logo' src={logoImage} />
+                    </Link>
                 </div>
                 <div className={styles.menuItem} onClick={handleChange}>
                     <div className={menu_class}></div>
                     <div className={menu_class}></div>
                 </div>
                 <div className={open ? `${styles.navbar} ${styles.navbarActive}` : `${styles.navbar}`}>
-                    {
-                        navbar.map((items, index) => {
-                            return (
-                                <ul className={styles.menu} key={index}>
-                                    <li onClick={handleChange}><Link to={`${items.url}`}>{items.title}</Link></li>
-                                </ul>
-                            )
-                        })
-                    }
                     <ul className={styles.menu}>
                         {
+                            navbar.map((items, index) => {
+                                return (
+                                    <li key={index} onClick={handleChange}><Link to={`${items.url}`}>{items.title}</Link></li>
+                                )
+                            })
+                        }
+                        {
                             userInfo ?
+                                <li>
+                                    <Dropdown>
+                                        <Dropdown.Toggle variant="secondary" id="dropdown-basic" className='bg-secondary'>
+                                            Hi, {userInfo.name}
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu className='bg-secondary'>
+                                            <Dropdown.Item href="/user">Profile</Dropdown.Item>
+                                            <Dropdown.Item href="#" onClick={logoutHandler}>Logout</Dropdown.Item>
+                                        </Dropdown.Menu>
+                                    </Dropdown>
+                                </li>
+                                :
                                 <li onClick={handleChange}>
                                     <Link to="/login">
                                         Login
                                     </Link>
-                                </li>
-                                :
-                                <li onClick={handleChange}>
-                                    Logout
                                 </li>
                         }
                     </ul>

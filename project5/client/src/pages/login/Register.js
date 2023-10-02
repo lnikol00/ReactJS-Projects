@@ -1,29 +1,55 @@
 import React, { useRef, useState, useEffect } from 'react'
 import AnimatedPage from '../../components/context/AnimatedPage'
 import styles from "../../styles/login.module.css"
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from "react-redux"
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { register } from "../../Redux/Actions/UserAction"
+import Loading from '../../components/messages/Loading'
+import Error from '../../components/messages/Error'
 
 function Register() {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-    const [matchPassword, setMatchPassword] = useState('');
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const redirect = location.search ? String(location.search.split("=")[1]) : "/";
+
+    const formRef = useRef();
     const nameRef = useRef();
     useEffect(() => {
         nameRef.current.focus()
     }, [])
 
-    const formRef = useRef();
+
+    const dispatch = useDispatch();
+
+    const userRegister = useSelector((state) => state.userRegister)
+    const { error, loading, userInfo } = userRegister;
+
+    useEffect(() => {
+        if (userInfo) {
+            navigate(redirect);
+        }
+    }, [userInfo, redirect, navigate])
+
     const handleSubmit = (e) => {
         e.preventDefault();
+        dispatch(register(name, email, password));
     }
 
     return (
         <AnimatedPage >
             <div className={styles.mainContainer}>
                 <h1>Register</h1>
+                {
+                    error && <Error>{error}</Error>
+                }
+                {
+                    loading && <Loading />
+                }
                 <form onSubmit={handleSubmit} ref={formRef}>
                     <div>
                         <label>
@@ -63,20 +89,8 @@ function Register() {
                             required
                         />
                     </div>
-                    <div>
-                        <label>
-                            Confirm Password
-                        </label>
-                        <input
-                            type='password'
-                            value={password}
-                            placeholder='Enter password...'
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        />
-                    </div>
                     <button>Register</button>
-                    <Link to="/login">Already have an account! Log In</Link>
+                    <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>Already have an account! Log In</Link>
                 </form>
             </div>
         </AnimatedPage >
