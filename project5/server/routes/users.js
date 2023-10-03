@@ -8,7 +8,9 @@ const userRoute = express.Router();
 //LOGIN
 userRoute.post("/login", asyncHandler(userController.handleLogin));
 
-userRoute.get("/profile", protect, asyncHandler(userController.handleProfile));
+userRoute.route("/profile")
+    .get(protect, asyncHandler(userController.handleProfile))
+    .put(protect, asyncHandler(userController.handleProfileUpdate));
 
 userRoute.post('/', asyncHandler(userController.handleRegister));
 
