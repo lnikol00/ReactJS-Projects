@@ -1,5 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import React from 'react'
+import 'react-toastify/dist/ReactToastify.css';
 import { Routes, Route, useLocation } from "react-router-dom";
 import Home from '../../pages/home/Home'
 import About from '../../pages/about/About'
@@ -8,7 +9,7 @@ import Menu from '../../pages/menu/Menu'
 import Cart from '../../pages/menu/Cart'
 import Login from '../../pages/login/Login';
 import Register from '../../pages/login/Register';
-import User from '../../pages/login/User';
+import User from '../../pages/login/user/User';
 import NotFound from '../../pages/not-found/NotFound';
 import SingleProduct from '../../pages/menu/SingleProduct';
 

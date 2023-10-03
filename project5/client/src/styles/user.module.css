@@ -14,13 +14,14 @@
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    width: 1000px;
+    /* width: 1000px; */
     margin-top: 30px;
 }
 
 .chategories {
     margin-right: 2em;
-    width: 30%;
+    /* width: 30%; */
+    width: 300px;
     padding: 20px 10px;
     border-radius: 8px;
     box-shadow: 1px 2px 5px black;
@@ -60,7 +61,8 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    width: 70%;
+    /* width: 70%; */
+    width: 600px;
     padding: 20px 10px;
     margin-right: 2em;
     padding: 20px 10px;
@@ -75,7 +77,6 @@
 .data form {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    margin-top: 15px;
 }
 
 .data div {
@@ -112,4 +113,40 @@
     outline: none;
     border: none;
     cursor: pointer;
+}
+
+@media screen and (max-width:1200px) {
+    .infoContainer {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .mainContainer {
+        padding-bottom: 50px;
+    }
+
+    .mainContainer h1 {
+        padding-top: 20px;
+    }
+
+    .chategories {
+        margin: 0;
+    }
+
+    .data {
+        margin: 0;
+    }
+}
+
+@media screen and (max-width:650px) {
+    .data {
+        flex-direction: column;
+        width: 300px;
+    }
+
+    .data form {
+        grid-template-columns: repeat(1, auto);
+    }
 }
