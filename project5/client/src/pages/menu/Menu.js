@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import styles from "../../styles/menu.module.css"
+import styles from "../../styles/menu/menu.module.css"
 import AnimatedPage from '../../components/context/AnimatedPage'
 import * as GiIcons from 'react-icons/gi'
 import { Link } from 'react-router-dom'

@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import styles from '../../styles/cart.module.css'
+import styles from '../../styles/menu/cart.module.css'
 import AnimatedPage from '../../components/context/AnimatedPage'
 import * as BsIcons from 'react-icons/bs'
 import * as GiIcons from 'react-icons/gi'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
-import { Link } from 'react-router-dom'
-
 import { useDispatch, useSelector } from "react-redux"
-import { addToCart, removefromcart } from '../../Redux/Actions/CartAction'
+import { addToCart, removeFromCart } from '../../Redux/Actions/CartAction'
 
 function Cart() {
     const navigate = useNavigate();
@@ -38,7 +36,7 @@ function Cart() {
     }
 
     const removeFromCartHandle = (id) => {
-        dispatch(removefromcart(id))
+        dispatch(removeFromCart(id))
     }
 
 

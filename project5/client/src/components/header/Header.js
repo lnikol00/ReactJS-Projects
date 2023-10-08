@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from '../../styles/header.module.css'
+import styles from '../../styles/header/header.module.css'
 import logoImage from "../../images/logo.png"
 import { NavbarItems } from './NavbarItems'
 import { useDispatch, useSelector } from "react-redux"

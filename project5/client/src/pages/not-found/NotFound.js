@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styles from "../../styles/notfound.module.css"
+import styles from "../../styles/not-found/notfound.module.css"
 import * as HiIcons from "react-icons/hi"
 import AnimatedPage from '../../components/context/AnimatedPage'
 

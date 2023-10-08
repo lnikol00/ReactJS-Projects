@@ -12,6 +12,9 @@ import Register from '../../pages/login/Register';
 import User from '../../pages/login/user/User';
 import NotFound from '../../pages/not-found/NotFound';
 import SingleProduct from '../../pages/menu/SingleProduct';
+import Shipping from '../../pages/menu/shipping/Shipping';
+import Payment from '../../pages/menu/shipping/Payment';
+import PlaceorderScreen from '../../pages/menu/shipping/PlaceorderScreen';
 
 function AnimatedRoutes() {
 
@@ -26,6 +29,9 @@ function AnimatedRoutes() {
                 <Route path='products' element={<Menu />} />
                 <Route path='products/:id' element={<SingleProduct />} />
                 <Route path='cart/:id?' element={<Cart />} />
+                <Route path='shipping' element={<Shipping />} />
+                <Route path='payment' element={<Payment />} />
+                <Route path='placeorder' element={<PlaceorderScreen />} />
                 <Route path='login' element={<Login />} />
                 <Route path='register' element={<Register />} />
                 <Route path='user' element={<User />} />

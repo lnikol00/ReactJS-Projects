@@ -1,6 +1,6 @@
 import React from 'react'
 import AnimatedPage from '../../components/context/AnimatedPage'
-import styles from "../../styles/about.module.css"
+import styles from "../../styles/about/about.module.css"
 import aboutImage from "../../images/about.jpg"
 
 function About() {

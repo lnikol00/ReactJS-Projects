@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
 import AnimatedPage from '../../components/context/AnimatedPage'
-import styles from "../../styles/inputs.module.css"
+import styles from "../../styles/input/inputs.module.css"
 import registerImage from '../../images/register.jpg'
 import { useDispatch, useSelector } from "react-redux"
 import { Link, useLocation, useNavigate } from 'react-router-dom'

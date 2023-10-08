@@ -1,0 +1,44 @@
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6em;
+}
+
+.mainContainer form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 350px;
+    padding: 20px;
+    box-shadow: 1px 2px 5px black;
+    border-radius: 4px;
+}
+
+.mainContainer h5 {
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.radioContainer {
+    font-size: 18px;
+}
+
+.radioContainer label {
+    margin-left: 20px;
+}
+
+.mainContainer form button {
+    outline: none;
+    border: none;
+    color: white;
+    background-color: black;
+    height: 50px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .mainContainer {
+        padding: 4em 2em;
+    }
+}

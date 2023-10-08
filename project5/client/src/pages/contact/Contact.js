@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react'
 import AnimatedPage from '../../components/context/AnimatedPage'
-import styles from '../../styles/inputs.module.css'
+import styles from '../../styles/input/inputs.module.css'
 import contactImage from '../../images/contact.jpg'
 
 function Contact() {

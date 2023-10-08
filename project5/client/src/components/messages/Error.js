@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from "../../styles/error.module.css"
+import styles from "../../styles/messages/error.module.css"
 
 const Error = ({ children }) => {
     return (

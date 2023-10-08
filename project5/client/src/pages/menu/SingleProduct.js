@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from "react-router-dom"
-import styles from "../../styles/single.module.css"
+import styles from "../../styles/menu/single.module.css"
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux"
 import { listProductDetails } from '../../Redux/Actions/ProductActions'

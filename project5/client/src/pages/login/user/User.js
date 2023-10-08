@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import styles from "../../../styles/user.module.css"
+import styles from "../../../styles/user/user.module.css"
 import AnimatedPage from '../../../components/context/AnimatedPage'
 import * as BiIcons from "react-icons/bi"
 import { useDispatch, useSelector } from "react-redux"
