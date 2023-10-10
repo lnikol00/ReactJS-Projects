@@ -24,28 +24,28 @@ const orderSchema = mongoose.Schema({
         postalCode: { type: String, required: true },
         country: { type: String, required: true },
     },
-    paymendMethod: {
+    paymentMethod: {
         type: String,
         required: true,
         default: "Paypal"
     },
-    paymendResult: {
+    paymentResult: {
         id: { type: String },
         status: { type: String },
         update_time: { type: String },
         email_address: { type: String },
-    },
-    taxPrice: {
-        type: Number,
-        required: true,
-        default: 0.0,
     },
     shippingPrice: {
         type: Number,
         required: true,
         default: 0.0,
     },
-    totalPrice: {
+    total: {
+        type: Number,
+        required: true,
+        default: 0.0,
+    },
+    estimatedTotal: {
         type: Number,
         required: true,
         default: 0.0,
