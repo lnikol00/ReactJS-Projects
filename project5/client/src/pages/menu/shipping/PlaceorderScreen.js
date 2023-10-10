@@ -2,12 +2,27 @@ import React from 'react'
 import styles from "../../../styles/menu/shipping/placeorder.module.css"
 import * as BiIcons from "react-icons/bi"
 import * as ImIcons from "react-icons/im"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 function PlaceorderScreen() {
 
+    const dispatch = useDispatch();
+
     const cart = useSelector((state) => state.cart)
-    const { cartItems } = cart;
+
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin;
+
+    // Calculate price
+    const total = cart.cartItems.reduce((a, i) => a + i.qty * i.price, 0).toFixed(2)
+
+    const shippingPrice = total > 30 ? 0 : 15.00;
+
+    const estimatedTotal = (Number(total) + Number(shippingPrice)).toFixed(2);
+
+    const placeOrderHandler = (e) => {
+        e.preventDefault();
+    }
 
     return (
         <div className={styles.mainContainer}>
@@ -18,7 +33,7 @@ function PlaceorderScreen() {
                     </div>
                     <div className={styles.customer}>
                         <h6>Customer</h6>
-                        <span>Ime Prezime <br />Email@email.com</span>
+                        <span>{userInfo.name}<br />{userInfo.email}</span>
                     </div>
                 </div>
                 <div >
@@ -27,7 +42,7 @@ function PlaceorderScreen() {
                     </div>
                     <div className={styles.orderInfo}>
                         <h6>Order info</h6>
-                        <span>Shipping: Croatia <br />Pyment method: Paypal</span>
+                        <span>Shipping: Croatia <br />Pyment method: {cart.paymentMethod}</span>
                     </div>
                 </div>
                 <div >
@@ -36,13 +51,13 @@ function PlaceorderScreen() {
                     </div>
                     <div className={styles.delivery}>
                         <h6>Deliver to</h6>
-                        <span>Address: dasdasda<br />sdadasdasda</span>
+                        <span>Address: {cart.shippingAddress.address}<br />{cart.shippingAddress.city}, {cart.shippingAddress.postalCode}</span>
                     </div>
                 </div>
             </div>
             <div className={styles.orderContainer}>
                 <div className={styles.itemContainer}>
-                    {cartItems.map((item) => (
+                    {cart.cartItems.map((item) => (
                         <div className={styles.order} key={item.product}>
                             <div className={styles.title}>
                                 <img src={item.image} alt={item.title} />
@@ -60,9 +75,9 @@ function PlaceorderScreen() {
                 <div className={styles.price}>
                     <div className={styles.table}>
                         <b>Total Price:</b>
-                        <span>30e</span>
+                        <span>€ {estimatedTotal}</span>
                     </div>
-                    <button>PLACE ORDER</button>
+                    <button onClick={placeOrderHandler}>PLACE ORDER</button>
                 </div>
             </div>
         </div>

@@ -19,7 +19,14 @@ function Cart() {
     const cart = useSelector((state) => state.cart)
     const { cartItems } = cart;
 
+    // Calculate price
     const total = cartItems.reduce((a, i) => a + i.qty * i.price, 0).toFixed(2)
+
+    const shippingPrice = total > 30 ? 0 : 15.00;
+
+    const freeShipping = ((20 - Number(total).toFixed(2)) > 0 ? (20 - Number(total).toFixed(2)) : 0);
+
+    const estimatedTotal = (Number(total) + Number(shippingPrice)).toFixed(2);
 
     useEffect(() => {
         if (productId) {
@@ -38,11 +45,6 @@ function Cart() {
     const removeFromCartHandle = (id) => {
         dispatch(removeFromCart(id))
     }
-
-
-    const [value, setValue] = useState(0)
-    const [totalValue, setTotalValue] = useState(0)
-    const [freeShipping, setFreeShipping] = useState(0)
 
     return (
         <AnimatedPage>
@@ -91,7 +93,7 @@ function Cart() {
                                         </div>
                                     </div>
                                     <div className={styles.checkoutButton}>
-                                        <p>You're <b>€{freeShipping.toFixed(2)}</b> away from free shipping!</p>
+                                        <p>You're <b>€0.00</b> away from free shipping!</p>
                                         <button onClick={checkoutHandler}>
                                             <GiIcons.GiShoppingBag /> Checkout
                                         </button>
@@ -162,7 +164,7 @@ function Cart() {
                                     <div className={styles.info}>
                                         <div>
                                             <span>Shipping cost</span>
-                                            <span>€{value}</span>
+                                            <span>€{shippingPrice}</span>
                                         </div>
                                         <div>
                                             <span>Discount</span>
@@ -174,11 +176,11 @@ function Cart() {
                                         </div>
                                         <div className={styles.estimatedTotal}>
                                             <span>Estimated Total</span>
-                                            <span>€</span>
+                                            <span>€{estimatedTotal}</span>
                                         </div>
                                     </div>
                                     <div className={styles.checkoutButton}>
-                                        <p>You're <b>€{freeShipping.toFixed(2)}</b> away from free shipping!</p>
+                                        <p>You're <b>€{freeShipping}</b> away from free shipping!</p>
                                         <button onClick={checkoutHandler}>
                                             <GiIcons.GiShoppingBag /> Checkout
                                         </button>
