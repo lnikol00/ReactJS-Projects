@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from "../../../styles/menu/shipping/placeorder.module.css"
 import * as BiIcons from "react-icons/bi"
 import * as ImIcons from "react-icons/im"
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from 'react-router-dom'
+import { ORDER_CREATE_RESET } from "../../../Redux/Constants/OrderContants";
+import { createOrder } from '../../../Redux/Actions/OrderAction'
+
 
 function PlaceorderScreen() {
 
@@ -20,8 +24,25 @@ function PlaceorderScreen() {
 
     const estimatedTotal = (Number(total) + Number(shippingPrice)).toFixed(2);
 
+    const orderCreate = useSelector((state) => state.orderCreate)
+    const { order, success, error } = orderCreate;
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (success) {
+            navigate(`/order/${order._id}`)
+            dispatch({ type: ORDER_CREATE_RESET })
+        }
+    }, [navigate, dispatch, success, order])
+
     const placeOrderHandler = (e) => {
         e.preventDefault();
+        createOrder({
+            orderItems: cart.cartItems,
+            shippingAddress: cart.shippingAddress,
+            paymentMethod: cart.paymentMethod,
+        })
     }
 
     return (

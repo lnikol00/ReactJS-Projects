@@ -15,6 +15,7 @@ import SingleProduct from '../../pages/menu/SingleProduct';
 import Shipping from '../../pages/menu/shipping/Shipping';
 import Payment from '../../pages/menu/shipping/Payment';
 import PlaceorderScreen from '../../pages/menu/shipping/PlaceorderScreen';
+import OrderScreen from '../../pages/menu/shipping/OrderScreen';
 
 function AnimatedRoutes() {
 
@@ -32,6 +33,7 @@ function AnimatedRoutes() {
                 <Route path='shipping' element={<Shipping />} />
                 <Route path='payment' element={<Payment />} />
                 <Route path='placeorder' element={<PlaceorderScreen />} />
+                <Route path='order/:id' element={<OrderScreen />} />
                 <Route path='login' element={<Login />} />
                 <Route path='register' element={<Register />} />
                 <Route path='user' element={<User />} />
